@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Auto Backup rules for Android 11 and below (android:fullBackupContent).
+    Everything is backed up — installed scenarios and AI history live in the
+    Room database and are the user's own content — EXCEPT the settings
+    DataStore, which holds the user's AI provider API keys and must never
+    leave the device.
+    Path matches SettingsDataStore: filesDir/datastore/shortcut_settings.preferences_pb
+-->
+<full-backup-content>
+    <exclude domain="file" path="datastore/" />
+</full-backup-content>

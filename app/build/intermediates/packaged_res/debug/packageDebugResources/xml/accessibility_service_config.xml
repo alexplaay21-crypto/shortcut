@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Static half of ShortcutAccessibilityService's configuration. The event types,
+    feedback type, flags and timeout are set again in onServiceConnected() and
+    that runtime copy wins — they are repeated here so Android's Accessibility
+    settings screen and the pre-connect state match reality.
+
+    canRetrieveWindowContent is the part that can ONLY come from this file:
+    a capability can't be granted at runtime. Without it rootInActiveWindow is
+    always null and every ui.* call silently finds nothing.
+
+    Deliberately absent: packageNames (the service must see any app a scenario
+    automates), canPerformGestures (UiActions uses node actions, never gestures)
+    and isAccessibilityTool (Shortcut is an automation tool, not an assistive one).
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/accessibility_service_description"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged|typeViewClicked"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagReportViewIds|flagRetrieveInteractiveWindows"
+    android:canRetrieveWindowContent="true"
+    android:notificationTimeout="100" />

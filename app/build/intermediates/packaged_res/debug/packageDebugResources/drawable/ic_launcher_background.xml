@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Adaptive-icon background: the app's dark base (BackgroundDark, 0xFF0B0B0D),
+    so the amber bolt on top reads exactly like the app's own dark theme.
+    Full-bleed 108dp square — the launcher's mask decides the final shape.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#0B0B0D"
+        android:pathData="M0,0h108v108h-108z" />
+</vector>

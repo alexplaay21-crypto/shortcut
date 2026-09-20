@@ -1,0 +1,558 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.sunflower.shortcut"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="26"
+8-->INJECTED
+9        android:targetSdkVersion="36" />
+9-->INJECTED
+10
+11    <!--
+12         ================= Hardware: nothing is required =================
+13         Each permission below implies a hardware feature and would hide the app
+14         from devices without it. A scenario that needs a camera simply reports an
+15         error on a device that has none, so none of these may filter installs.
+16    -->
+17    <uses-feature
+17-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:9:5-85
+18        android:name="android.hardware.camera"
+18-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:9:19-57
+19        android:required="false" />
+19-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:9:58-82
+20    <uses-feature
+20-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:10:5-89
+21        android:name="android.hardware.camera.any"
+21-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:10:19-61
+22        android:required="false" />
+22-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:10:62-86
+23    <uses-feature
+23-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:11:5-95
+24        android:name="android.hardware.camera.autofocus"
+24-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:11:19-67
+25        android:required="false" />
+25-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:11:68-92
+26    <uses-feature
+26-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:12:5-88
+27        android:name="android.hardware.bluetooth"
+27-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:12:19-60
+28        android:required="false" />
+28-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:12:61-85
+29    <uses-feature
+29-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:13:5-88
+30        android:name="android.hardware.telephony"
+30-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:13:19-60
+31        android:required="false" />
+31-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:13:61-85
+32    <uses-feature
+32-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:14:5-87
+33        android:name="android.hardware.location"
+33-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:14:19-59
+34        android:required="false" />
+34-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:14:60-84
+35    <uses-feature
+35-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:15:5-91
+36        android:name="android.hardware.location.gps"
+36-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:15:19-63
+37        android:required="false" />
+37-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:15:64-88
+38    <uses-feature
+38-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:16:5-83
+39        android:name="android.hardware.wifi"
+39-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:16:19-55
+40        android:required="false" />
+40-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:16:56-80
+41
+42    <!-- ================= Normal permissions (granted at install) ================= -->
+43    <uses-permission android:name="android.permission.INTERNET" />
+43-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:19:5-67
+43-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:19:22-64
+44    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+44-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:20:5-79
+44-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:20:22-76
+45    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+45-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:21:5-76
+45-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:21:22-73
+46    <uses-permission android:name="android.permission.VIBRATE" />
+46-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:22:5-66
+46-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:22:22-63
+47    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+47-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:23:5-81
+47-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:23:22-78
+48    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+48-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:24:5-77
+48-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:24:22-74
+49    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+49-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:25:5-89
+49-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:25:22-86
+50    <!-- Bluetooth before Android 12; from 12 on it is BLUETOOTH_CONNECT/SCAN below. -->
+51    <uses-permission
+51-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:27:5-95
+52        android:name="android.permission.BLUETOOTH"
+52-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:27:22-65
+53        android:maxSdkVersion="30" />
+53-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:27:66-92
+54
+55    <!--
+56         ================= Runtime permissions (asked on demand, spec §20) =================
+57         Only what an SDK module or trigger really uses. Deliberately NOT declared:
+58         RECORD_AUDIO and READ_MEDIA_* / READ_EXTERNAL_STORAGE — audio.* only plays
+59         files and files.* works inside the app's own storage, so nothing needs them,
+60         and each one is a privacy-policy line and a Play review question.
+61    -->
+62    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+62-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:34:5-77
+62-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:34:22-74
+63    <uses-permission android:name="android.permission.CAMERA" />
+63-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:35:5-65
+63-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:35:22-62
+64    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+64-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:36:5-79
+64-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:36:22-76
+65    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+65-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:37:5-81
+65-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:37:22-78
+66    <uses-permission android:name="android.permission.READ_CONTACTS" />
+66-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:38:5-72
+66-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:38:22-69
+67    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+67-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:39:5-75
+67-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:39:22-72
+68    <uses-permission android:name="android.permission.CALL_PHONE" />
+68-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:40:5-69
+68-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:40:22-66
+69    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+69-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:41:5-79
+69-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:41:22-76
+70    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+70-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:42:5-76
+70-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:42:22-73
+71    <!--
+72         Declared because the permissions overview treats Bluetooth as CONNECT + SCAN
+73         (both are the single "Nearby devices" dialog). The app never derives a
+74         location from scans, hence neverForLocation.
+75    -->
+76    <uses-permission
+76-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:46:5-49:31
+77        android:name="android.permission.BLUETOOTH_SCAN"
+77-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:47:9-57
+78        android:usesPermissionFlags="neverForLocation" />
+78-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:48:9-55
+79
+80    <!--
+81         ================= Special access (granted on a system settings screen) =================
+82         Only lets the app appear in "Modify system settings", used by system.setBrightness.
+83         Never granted automatically; the user has to switch it on.
+84    -->
+85    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+85-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:54:5-56:47
+85-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:55:9-57
+86
+87    <!--
+88         ================= Package visibility =================
+89         apps.launch / apps.getInstalled resolve launcher apps by name. Seeing every
+90         app that has a launcher icon is enough; QUERY_ALL_PACKAGES (restricted by
+91         Google Play) is not needed.
+92    -->
+93    <queries>
+93-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:62:5-67:15
+94        <intent>
+94-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:63:9-66:18
+95            <action android:name="android.intent.action.MAIN" />
+95-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:64:13-65
+95-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:64:21-62
+96
+97            <category android:name="android.intent.category.LAUNCHER" />
+97-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:65:13-73
+97-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:65:23-70
+98        </intent>
+99    </queries>
+100
+101    <uses-permission android:name="android.permission.WAKE_LOCK" />
+101-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:23:5-68
+101-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:23:22-65
+102
+103    <permission
+103-->[androidx.core:core:1.18.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1a891278d27c2a191930365119a41a1d/transformed/core-1.18.0/AndroidManifest.xml:22:5-24:47
+104        android:name="com.sunflower.shortcut.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+104-->[androidx.core:core:1.18.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1a891278d27c2a191930365119a41a1d/transformed/core-1.18.0/AndroidManifest.xml:23:9-81
+105        android:protectionLevel="signature" />
+105-->[androidx.core:core:1.18.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1a891278d27c2a191930365119a41a1d/transformed/core-1.18.0/AndroidManifest.xml:24:9-44
+106
+107    <uses-permission android:name="com.sunflower.shortcut.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+107-->[androidx.core:core:1.18.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1a891278d27c2a191930365119a41a1d/transformed/core-1.18.0/AndroidManifest.xml:26:5-97
+107-->[androidx.core:core:1.18.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1a891278d27c2a191930365119a41a1d/transformed/core-1.18.0/AndroidManifest.xml:26:22-94
+108
+109    <application
+109-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:69:5-183:19
+110        android:name="com.sunflower.shortcut.ShortcutApplication"
+110-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:70:9-44
+111        android:allowBackup="true"
+111-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:71:9-35
+112        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+112-->[androidx.core:core:1.18.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1a891278d27c2a191930365119a41a1d/transformed/core-1.18.0/AndroidManifest.xml:28:18-86
+113        android:dataExtractionRules="@xml/data_extraction_rules"
+113-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:72:9-65
+114        android:debuggable="true"
+115        android:extractNativeLibs="false"
+115-->INJECTED
+116        android:fullBackupContent="@xml/backup_rules"
+116-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:73:9-54
+117        android:icon="@mipmap/ic_launcher"
+117-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:74:9-43
+118        android:label="@string/app_name"
+118-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:75:9-41
+119        android:networkSecurityConfig="@xml/network_security_config"
+119-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:76:9-69
+120        android:roundIcon="@mipmap/ic_launcher_round"
+120-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:77:9-54
+121        android:supportsRtl="true"
+121-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:78:9-35
+122        android:theme="@style/Theme.Shortcut" >
+122-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:79:9-46
+123
+124        <!--
+125             The single UI entry point (spec §4). singleTask so a .js opened or shared
+126             while the app is running arrives in onNewIntent instead of a second copy.
+127        -->
+128        <activity
+128-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:83:9-116:20
+129            android:name="com.sunflower.shortcut.MainActivity"
+129-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:84:13-41
+130            android:exported="true"
+130-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:85:13-36
+131            android:launchMode="singleTask"
+131-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:86:13-44
+132            android:windowSoftInputMode="adjustResize" >
+132-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:87:13-55
+133            <intent-filter>
+133-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:89:13-92:29
+134                <action android:name="android.intent.action.MAIN" />
+134-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:64:13-65
+134-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:64:21-62
+135
+136                <category android:name="android.intent.category.LAUNCHER" />
+136-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:65:13-73
+136-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:65:23-70
+137            </intent-filter>
+138
+139            <!-- "Open with…" on a .js file (file manager, e-mail attachment). -->
+140            <intent-filter>
+140-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:95:13-104:29
+141                <action android:name="android.intent.action.VIEW" />
+141-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:96:17-69
+141-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:96:25-66
+142
+143                <category android:name="android.intent.category.DEFAULT" />
+143-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:97:17-76
+143-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:97:27-73
+144
+145                <data android:scheme="content" />
+145-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+145-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:23-47
+146                <data android:scheme="file" />
+146-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+146-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:23-47
+147                <data android:mimeType="application/javascript" />
+147-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+147-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+148                <data android:mimeType="text/javascript" />
+148-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+148-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+149                <data android:mimeType="application/x-javascript" />
+149-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+149-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+150                <data android:mimeType="text/x-javascript" />
+150-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+150-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+151            </intent-filter>
+152
+153            <!--
+154                 "Share" of a .js file. Plain text / octet-stream are not listed on
+155                 purpose: they would put Shortcut into every share sheet in the system.
+156            -->
+157            <intent-filter>
+157-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:108:13-115:29
+158                <action android:name="android.intent.action.SEND" />
+158-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:109:17-69
+158-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:109:25-66
+159
+160                <category android:name="android.intent.category.DEFAULT" />
+160-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:97:17-76
+160-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:97:27-73
+161
+162                <data android:mimeType="application/javascript" />
+162-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+162-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+163                <data android:mimeType="text/javascript" />
+163-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+163-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+164                <data android:mimeType="application/x-javascript" />
+164-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+164-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+165                <data android:mimeType="text/x-javascript" />
+165-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:98:17-50
+165-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:100:23-64
+166            </intent-filter>
+167        </activity>
+168
+169        <!--
+170             Background listener for device events (charging, Bluetooth, Wi-Fi), started only
+171             while an automation needs one (spec §29). specialUse rather than dataSync: from
+172             Android 15 a dataSync service is capped at 6 h per 24 h (and must implement
+173             onTimeout), and BOOT_COMPLETED may not start one — both would silently kill
+174             triggers. Google Play needs this type declared in Play Console.
+175        -->
+176        <service
+176-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:123:9-130:19
+177            android:name="com.sunflower.shortcut.android.services.TriggerMonitorService"
+177-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:124:13-67
+178            android:exported="false"
+178-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:125:13-37
+179            android:foregroundServiceType="specialUse" >
+179-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:126:13-55
+180            <property
+180-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:127:13-129:177
+181                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+181-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:128:17-76
+182                android:value="Keeps listeners for device events (charging, battery, Bluetooth, Wi-Fi) alive so that automations the user created can run in the background." />
+182-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:129:17-174
+183        </service>
+184
+185        <!-- Backs the ui.* SDK module. Capabilities come from accessibility_service_config. -->
+186        <service
+186-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:133:9-144:19
+187            android:name="com.sunflower.shortcut.accessibility.ShortcutAccessibilityService"
+187-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:134:13-71
+188            android:exported="true"
+188-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:135:13-36
+189            android:label="@string/app_name"
+189-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:136:13-45
+190            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+190-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:137:13-79
+191            <intent-filter>
+191-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:138:13-140:29
+192                <action android:name="android.accessibilityservice.AccessibilityService" />
+192-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:139:17-92
+192-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:139:25-89
+193            </intent-filter>
+194
+195            <meta-data
+195-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:141:13-143:72
+196                android:name="android.accessibilityservice"
+196-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:142:17-60
+197                android:resource="@xml/accessibility_service_config" />
+197-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:143:17-69
+198        </service>
+199
+200        <!--
+201             The two broadcasts allowed in the manifest (spec §40). Not exported: they are sent
+202             by the system itself, and exported=false stops other apps from faking them.
+203        -->
+204        <receiver
+204-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:148:9-155:20
+205            android:name="com.sunflower.shortcut.android.receivers.BootCompletedReceiver"
+205-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:149:13-68
+206            android:exported="false" >
+206-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:150:13-37
+207            <intent-filter>
+207-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:151:13-154:29
+208                <action android:name="android.intent.action.BOOT_COMPLETED" />
+208-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:152:17-79
+208-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:152:25-76
+209                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+209-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:153:17-84
+209-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:153:25-81
+210            </intent-filter>
+211        </receiver>
+212
+213        <!--
+214             ScenarioSharer: hands an exported .js to the share sheet. Paths: xml/file_paths.xml.
+215             The authority must stay "<applicationId>.fileprovider".
+216        -->
+217        <provider
+217-->INJECTED
+218            android:name="androidx.core.content.FileProvider"
+218-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:160:13-62
+219            android:authorities="com.sunflower.shortcut.fileprovider"
+219-->INJECTED
+220            android:exported="false"
+220-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:162:13-37
+221            android:grantUriPermissions="true" >
+221-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:163:13-47
+222            <meta-data
+222-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:164:13-166:54
+223                android:name="android.support.FILE_PROVIDER_PATHS"
+223-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:165:17-67
+224                android:resource="@xml/file_paths" />
+224-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:166:17-51
+225        </provider>
+226
+227        <!--
+228             On-demand WorkManager (spec §30): ShortcutApplication supplies the configuration,
+229             so the automatic startup initializer must go. The provider itself stays — other
+230             libraries use androidx.startup too.
+231        -->
+232        <provider
+232-->INJECTED
+233            android:name="androidx.startup.InitializationProvider"
+233-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:173:13-67
+234            android:authorities="com.sunflower.shortcut.androidx-startup"
+234-->INJECTED
+235            android:exported="false" >
+235-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:175:13-37
+236            <meta-data
+236-->[androidx.emoji2:emoji2:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/261efb2c32d7d2b750e02b6bbc50575a/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+237                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+237-->[androidx.emoji2:emoji2:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/261efb2c32d7d2b750e02b6bbc50575a/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+238                android:value="androidx.startup" />
+238-->[androidx.emoji2:emoji2:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/261efb2c32d7d2b750e02b6bbc50575a/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+239            <meta-data
+239-->[androidx.lifecycle:lifecycle-process:2.9.4] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1052239ae7ca142cd6c3632111e06ff4/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:29:13-31:52
+240                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+240-->[androidx.lifecycle:lifecycle-process:2.9.4] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1052239ae7ca142cd6c3632111e06ff4/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:30:17-78
+241                android:value="androidx.startup" />
+241-->[androidx.lifecycle:lifecycle-process:2.9.4] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/1052239ae7ca142cd6c3632111e06ff4/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:31:17-49
+242            <meta-data
+242-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+243                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+243-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+244                android:value="androidx.startup" />
+244-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+245        </provider>
+246
+247        <service
+247-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:39:9-45:35
+248            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+248-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:40:13-84
+249            android:directBootAware="false"
+249-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:41:13-44
+250            android:enabled="@bool/enable_system_job_service_default"
+250-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:42:13-70
+251            android:exported="true"
+251-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:43:13-36
+252            android:permission="android.permission.BIND_JOB_SERVICE" />
+252-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:44:13-69
+253        <service
+253-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:46:9-52:35
+254            android:name="androidx.work.impl.foreground.SystemForegroundService"
+254-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:47:13-81
+255            android:directBootAware="false"
+255-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:48:13-44
+256            android:enabled="@bool/enable_system_foreground_service_default"
+256-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:49:13-77
+257            android:exported="false" />
+257-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:50:13-37
+258
+259        <receiver
+259-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:54:9-59:35
+260            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+260-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:55:13-88
+261            android:directBootAware="false"
+261-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:56:13-44
+262            android:enabled="true"
+262-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:57:13-35
+263            android:exported="false" />
+263-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:58:13-37
+264        <receiver
+264-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:60:9-69:20
+265            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+265-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:61:13-88
+266            android:directBootAware="false"
+266-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:62:13-44
+267            android:enabled="false"
+267-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:63:13-36
+268            android:exported="false" >
+268-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:64:13-37
+269            <intent-filter>
+269-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:66:13-68:29
+270                <action android:name="android.intent.action.BOOT_COMPLETED" />
+270-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:152:17-79
+270-->/data/data/com.termux/files/home/shortcut0/app/src/main/AndroidManifest.xml:152:25-76
+271            </intent-filter>
+272        </receiver>
+273        <receiver
+273-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:70:9-80:20
+274            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+274-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:71:13-78
+275            android:directBootAware="false"
+275-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:72:13-44
+276            android:enabled="true"
+276-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:73:13-35
+277            android:exported="true"
+277-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:74:13-36
+278            android:permission="android.permission.DUMP" >
+278-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:75:13-57
+279            <intent-filter>
+279-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:77:13-79:29
+280                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+280-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:78:17-88
+280-->[androidx.work:work-runtime:2.11.2] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/affdcb29a6cadfec824b9bd7414fb792/transformed/work-runtime-2.11.2/AndroidManifest.xml:78:25-85
+281            </intent-filter>
+282        </receiver>
+283
+284        <uses-library
+284-->[androidx.window:window:1.5.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/0c22f4b56413290ff4b9ef45d2033b6e/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+285            android:name="androidx.window.extensions"
+285-->[androidx.window:window:1.5.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/0c22f4b56413290ff4b9ef45d2033b6e/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+286            android:required="false" />
+286-->[androidx.window:window:1.5.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/0c22f4b56413290ff4b9ef45d2033b6e/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+287        <uses-library
+287-->[androidx.window:window:1.5.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/0c22f4b56413290ff4b9ef45d2033b6e/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+288            android:name="androidx.window.sidecar"
+288-->[androidx.window:window:1.5.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/0c22f4b56413290ff4b9ef45d2033b6e/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+289            android:required="false" />
+289-->[androidx.window:window:1.5.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/0c22f4b56413290ff4b9ef45d2033b6e/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+290
+291        <service
+291-->[androidx.room:room-runtime-android:2.8.4] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/866dbb515710de89f2e552959a54721d/transformed/room-runtime/AndroidManifest.xml:24:9-28:63
+292            android:name="androidx.room.MultiInstanceInvalidationService"
+292-->[androidx.room:room-runtime-android:2.8.4] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/866dbb515710de89f2e552959a54721d/transformed/room-runtime/AndroidManifest.xml:25:13-74
+293            android:directBootAware="true"
+293-->[androidx.room:room-runtime-android:2.8.4] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/866dbb515710de89f2e552959a54721d/transformed/room-runtime/AndroidManifest.xml:26:13-43
+294            android:exported="false" />
+294-->[androidx.room:room-runtime-android:2.8.4] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/866dbb515710de89f2e552959a54721d/transformed/room-runtime/AndroidManifest.xml:27:13-37
+295
+296        <receiver
+296-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+297            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+297-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+298            android:directBootAware="false"
+298-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+299            android:enabled="true"
+299-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+300            android:exported="true"
+300-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+301            android:permission="android.permission.DUMP" >
+301-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+302            <intent-filter>
+302-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+303                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+303-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+303-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+304            </intent-filter>
+305            <intent-filter>
+305-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+306                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+306-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+306-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+307            </intent-filter>
+308            <intent-filter>
+308-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+309                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+309-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+309-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+310            </intent-filter>
+311            <intent-filter>
+311-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+312                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+312-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+312-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/data/com.termux/files/home/.gradle/caches/9.6.0/transforms/73e9aa3b7aa9ac455fbe5e5d81cf2d5f/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+313            </intent-filter>
+314        </receiver>
+315    </application>
+316
+317</manifest>

@@ -5,7 +5,7 @@ package com.sunflower.shortcut.automation.runtime
  * Android API ran". JsRuntime never talks to sdk/* modules directly — it
  * only knows this interface, so the runtime and the SDK modules can be
  * built and evolve independently (spec §31: SDK modules live under
- * com.sunflower.shortcut.sdk.*, added there without JsRuntime changing).
+ * com.sunflower.shortcut.sdk packages, added there without JsRuntime changing).
  *
  * [module] is the JS namespace ("camera", "apps", "ui", ...), [method] the
  * called function name, [argsJson] the JSON-encoded argument array from the
