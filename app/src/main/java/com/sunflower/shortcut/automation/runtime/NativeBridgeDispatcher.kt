@@ -2,7 +2,7 @@ package com.sunflower.shortcut.automation.runtime
 
 /**
  * The one seam between "JS said `camera.takePhoto({...})`" and "a real
- * Android API ran". JsRuntime never talks to sdk/* modules directly — it
+ * Android API ran". JsRuntime never talks to SDK modules directly — it
  * only knows this interface, so the runtime and the SDK modules can be
  * built and evolve independently (spec §31: SDK modules live under
  * com.sunflower.shortcut.sdk packages, added there without JsRuntime changing).
