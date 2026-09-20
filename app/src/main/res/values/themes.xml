@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Window theme only — every visible pixel is drawn by Compose (ShortcutTheme).
+        Status/navigation bars are left to enableEdgeToEdge() in MainActivity.
+        Light variant; values-night/themes.xml provides the dark one.
+    -->
+    <style name="Theme.Shortcut" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/shortcut_background_light</item>
+    </style>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Window backgrounds shown before the first Compose frame, so a cold start
+        doesn't flash the wrong color. Keep in sync with BackgroundLight /
+        BackgroundDark in ui/theme/Color.kt. (The in-app theme choice, including
+        AMOLED, is applied by Compose afterwards.)
+    -->
+    <color name="shortcut_background_light">#F7F7F8</color>
+    <color name="shortcut_background_dark">#0B0B0D</color>
+</resources>

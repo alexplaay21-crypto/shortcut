@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    FileProvider paths. Exactly one location is exposed: the cache subfolder
+    ScenarioSharer writes exported .js files into (cacheDir/shared/), under the
+    name "shared_scenarios". Nothing else in the app's storage is reachable
+    through the provider.
+-->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <cache-path
+        name="shared_scenarios"
+        path="shared/" />
+</paths>

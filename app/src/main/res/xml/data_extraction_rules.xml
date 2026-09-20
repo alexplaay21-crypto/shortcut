@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Same policy as backup_rules.xml, for Android 12+ (android:dataExtractionRules),
+    which splits cloud backup from device-to-device transfer. API keys are kept
+    out of both: after a restore or a phone switch the user simply enters them
+    again, which is cheaper than a leaked key.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="file" path="datastore/" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="file" path="datastore/" />
+    </device-transfer>
+</data-extraction-rules>

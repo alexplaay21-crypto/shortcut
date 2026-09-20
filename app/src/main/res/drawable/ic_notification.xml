@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Status-bar icon for every notification the app posts (run results and the
+    "Мониторинг автоматизаций" foreground service). Android draws these as a
+    silhouette: only the alpha channel matters, so it is plain white, no color.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M11.4,2 L15.9,2 L13.1,9.2 L16.4,9.2 L9.8,22 L11.4,13.1 L7.6,13.1 Z" />
+</vector>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ================= Hardware: nothing is required =================
+         Each permission below implies a hardware feature and would hide the app
+         from devices without it. A scenario that needs a camera simply reports an
+         error on a device that has none, so none of these may filter installs. -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+
+    <!-- ================= Normal permissions (granted at install) ================= -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <!-- Bluetooth before Android 12; from 12 on it is BLUETOOTH_CONNECT/SCAN below. -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+
+    <!-- ================= Runtime permissions (asked on demand, spec §20) =================
+         Only what an SDK module or trigger really uses. Deliberately NOT declared:
+         RECORD_AUDIO and READ_MEDIA_* / READ_EXTERNAL_STORAGE — audio.* only plays
+         files and files.* works inside the app's own storage, so nothing needs them,
+         and each one is a privacy-policy line and a Play review question. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!-- Declared because the permissions overview treats Bluetooth as CONNECT + SCAN
+         (both are the single "Nearby devices" dialog). The app never derives a
+         location from scans, hence neverForLocation. -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+
+    <!-- ================= Special access (granted on a system settings screen) =================
+         Only lets the app appear in "Modify system settings", used by system.setBrightness.
+         Never granted automatically; the user has to switch it on. -->
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- ================= Package visibility =================
+         apps.launch / apps.getInstalled resolve launcher apps by name. Seeing every
+         app that has a launcher icon is enough; QUERY_ALL_PACKAGES (restricted by
+         Google Play) is not needed. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".ShortcutApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Shortcut">
+
+        <!-- The single UI entry point (spec §4). singleTask so a .js opened or shared
+             while the app is running arrives in onNewIntent instead of a second copy. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- "Open with…" on a .js file (file manager, e-mail attachment). -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="application/javascript" />
+                <data android:mimeType="text/javascript" />
+                <data android:mimeType="application/x-javascript" />
+                <data android:mimeType="text/x-javascript" />
+            </intent-filter>
+
+            <!-- "Share" of a .js file. Plain text / octet-stream are not listed on
+                 purpose: they would put Shortcut into every share sheet in the system. -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/javascript" />
+                <data android:mimeType="text/javascript" />
+                <data android:mimeType="application/x-javascript" />
+                <data android:mimeType="text/x-javascript" />
+            </intent-filter>
+        </activity>
+
+        <!-- Background listener for device events (charging, Bluetooth, Wi-Fi), started only
+             while an automation needs one (spec §29). specialUse rather than dataSync: from
+             Android 15 a dataSync service is capped at 6 h per 24 h (and must implement
+             onTimeout), and BOOT_COMPLETED may not start one — both would silently kill
+             triggers. Google Play needs this type declared in Play Console. -->
+        <service
+            android:name=".android.services.TriggerMonitorService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Keeps listeners for device events (charging, battery, Bluetooth, Wi-Fi) alive so that automations the user created can run in the background." />
+        </service>
+
+        <!-- Backs the ui.* SDK module. Capabilities come from accessibility_service_config. -->
+        <service
+            android:name=".accessibility.ShortcutAccessibilityService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- The two broadcasts allowed in the manifest (spec §40). Not exported: they are sent
+             by the system itself, and exported=false stops other apps from faking them. -->
+        <receiver
+            android:name=".android.receivers.BootCompletedReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ScenarioSharer: hands an exported .js to the share sheet. Paths: xml/file_paths.xml.
+             The authority must stay "<applicationId>.fileprovider". -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- On-demand WorkManager (spec §30): ShortcutApplication supplies the configuration,
+             so the automatic startup initializer must go. The provider itself stays — other
+             libraries use androidx.startup too. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+    </application>
+</manifest>

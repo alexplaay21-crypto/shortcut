@@ -1,0 +1,90 @@
+#!/bin/sh
+#
+# Gradle Wrapper launcher (POSIX).
+#
+# Finds Java, then starts org.gradle.wrapper.GradleWrapperMain from
+# gradle/wrapper/gradle-wrapper.jar, which downloads and runs the Gradle
+# version named in gradle/wrapper/gradle-wrapper.properties.
+#
+# `gradle wrapper --gradle-version 9.6.0` regenerates this file and
+# gradlew.bat with Gradle's own copies and creates the jar.
+
+# --- APP_HOME: the folder this script lives in, symlinks resolved ---
+app_path=$0
+while
+    APP_HOME=${app_path%"${app_path##*/}"}
+    [ -h "$app_path" ]
+do
+    ls=$( ls -ld "$app_path" )
+    link=${ls#*' -> '}
+    case $link in
+      /*) app_path=$link ;;
+      *)  app_path=$APP_HOME$link ;;
+    esac
+done
+APP_BASE_NAME=${0##*/}
+APP_HOME=$( cd -P "${APP_HOME:-./}" > /dev/null && printf '%s\n' "$PWD" ) || exit
+
+warn () { echo "$*"; } >&2
+die () { echo; echo "$*"; echo; exit 1; } >&2
+
+# --- OS specifics ---
+cygwin=false; msys=false; darwin=false; nonstop=false
+case "$( uname )" in
+  CYGWIN* )        cygwin=true ;;
+  Darwin* )        darwin=true ;;
+  MSYS* | MINGW* ) msys=true ;;
+  NONSTOP* )       nonstop=true ;;
+esac
+
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+
+if [ ! -f "$CLASSPATH" ]; then
+    die "ERROR: $CLASSPATH is missing.
+
+The wrapper jar is a binary and is not part of this source drop. Create it once with
+    gradle wrapper --gradle-version 9.6.0
+or run the 'wrapper' task (Tasks > build setup) from Android Studio's Gradle tool window."
+fi
+
+# --- Java ---
+if [ -n "$JAVA_HOME" ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+        JAVACMD=$JAVA_HOME/jre/sh/java   # AIX
+    else
+        JAVACMD=$JAVA_HOME/bin/java
+    fi
+    [ -x "$JAVACMD" ] || die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
+
+Please set the JAVA_HOME variable in your environment to match the location of your Java installation."
+else
+    JAVACMD=java
+    command -v java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+
+Please set the JAVA_HOME variable in your environment to match the location of your Java installation."
+fi
+
+# --- Raise the open-file limit where that is allowed ---
+if ! "$cygwin" && ! "$darwin" && ! "$nonstop" ; then
+    MAX_FD=$( ulimit -H -n ) && ulimit -n "$MAX_FD" 2>/dev/null || warn "Could not raise the file descriptor limit"
+fi
+
+# --- JVM options for the wrapper process itself (not for the build) ---
+DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+
+# Arguments are rebuilt as: DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS -D... -classpath ... Main "$@"
+# JAVA_OPTS / GRADLE_OPTS are split into words (xargs), then quoted so nothing is expanded twice.
+set -- \
+        "-Dorg.gradle.appname=$APP_BASE_NAME" \
+        -classpath "$CLASSPATH" \
+        org.gradle.wrapper.GradleWrapperMain \
+        "$@"
+
+eval "set -- $(
+        printf '%s\n' "$DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS" |
+        xargs -n1 |
+        sed ' s~[^-[:alnum:]+,./:=@_]~\\&~g; ' |
+        tr '\n' ' '
+    )" '"$@"'
+
+exec "$JAVACMD" "$@"

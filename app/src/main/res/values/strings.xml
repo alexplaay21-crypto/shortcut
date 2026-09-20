@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shortcut</string>
+
+    <!--
+        Shown by Android under Settings → Accessibility → Shortcut, so it has to
+        say plainly what the service does. Keep it in step with the wording on
+        AccessibilityStatusScreen.
+    -->
+    <string name="accessibility_service_description">Нужен сценариям, которые работают с интерфейсом других приложений: находят элементы на экране, нажимают кнопки, вводят текст и прокручивают. Shortcut использует его только событийно, без постоянного сканирования экрана.</string>
+</resources>
