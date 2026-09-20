@@ -162,7 +162,7 @@ private fun themeLabel(theme: AppTheme): String = when (theme) {
 }
 
 @Composable
-private fun SettingsGroup(content: @Composable Column.() -> Unit) {
+private fun SettingsGroup(content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit) {
     Card(
         shape = ShortcutRadius.card,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
