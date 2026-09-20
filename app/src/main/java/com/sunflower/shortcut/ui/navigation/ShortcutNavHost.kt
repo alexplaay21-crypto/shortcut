@@ -2,6 +2,7 @@ package com.sunflower.shortcut.ui.navigation
 
 import android.net.Uri
 import androidx.compose.material.icons.Icons
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
@@ -11,6 +12,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType

@@ -49,6 +49,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
+        compilerOptions.freeCompilerArgs.add("-opt-in=androidx.compose.material3.ExperimentalMaterial3Api")
+    }
+
     buildFeatures {
         compose = true
         buildConfig = true // BuildConfig.DEBUG / APPLICATION_ID are read in the UI and ShortcutApplication
