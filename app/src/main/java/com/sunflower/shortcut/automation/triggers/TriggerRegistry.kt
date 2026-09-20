@@ -119,7 +119,7 @@ class TriggerRegistry(private val context: Context) {
                 context,
                 receiver,
                 filter,
-                ContextCompat.RECEIVER_NOT_EXPORTED
+                ContextCompat.RECEIVER_EXPORTED
             )
         }.onSuccess {
             broadcastReceiver = receiver
