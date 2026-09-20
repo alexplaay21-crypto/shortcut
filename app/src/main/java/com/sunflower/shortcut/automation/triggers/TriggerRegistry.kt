@@ -9,6 +9,7 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
+import androidx.core.content.ContextCompat
 import com.sunflower.shortcut.android.services.TriggerMonitorService
 
 /**
@@ -113,8 +114,18 @@ class TriggerRegistry(private val context: Context) {
             addAction(BluetoothDevice.ACTION_ACL_CONNECTED)
             addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED)
         }
-        runCatching { context.registerReceiver(receiver, filter) }
-            .onSuccess { broadcastReceiver = receiver }
+        runCatching {
+            ContextCompat.registerReceiver(
+                context,
+                receiver,
+                filter,
+                ContextCompat.RECEIVER_NOT_EXPORTED
+            )
+        }.onSuccess {
+            broadcastReceiver = receiver
+        }.onFailure {
+            android.util.Log.e("TriggerRegistry", "Не удалось зарегистрировать receiver", it)
+        }
     }
 
     private fun stopBroadcastReceiver() {
